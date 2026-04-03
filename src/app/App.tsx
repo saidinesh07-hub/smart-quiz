@@ -274,7 +274,7 @@ export default function App() {
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-blue-500/5 to-purple-500/5" />
       </motion.div>
        <div className="absolute bottom-4 w-full text-center text-sm text-white/70 backdrop-blur-sm">
-  🚀 Team ARJUN • MANUSHA • KEERTHANA • MANUSHA MARDHAL SHRAVYA
+    MANUSHA • KEERTHANA 
 </div>
     </div>
   );
