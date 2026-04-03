@@ -29,8 +29,22 @@ export function AIQuizInterface({
   const [questionCount, setQuestionCount] = useState(0);
   const [error, setError] = useState<string | null>(null);
 
-  // Generate first question on mount
+  // Generate first question on mount and clear cache
   useEffect(() => {
+    // Clear the server cache when starting a new quiz
+    const clearCache = async () => {
+      try {
+        await fetch('/api/clear-cache', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ topic: topic })
+        }).catch(() => {}); // Silently fail if endpoint doesn't exist
+      } catch (err) {
+        console.warn('Could not clear cache');
+      }
+    };
+    
+    clearCache();
     handleGenerateQuestion();
   }, [topic, difficulty]);
 
